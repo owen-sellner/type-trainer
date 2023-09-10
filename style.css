@@ -34,7 +34,7 @@ body {
 
 .options-wrapper {
     margin-bottom: 2vh;
-    display: grid;
+    display: flex;
     align-items: center;
     justify-content: space-between;
 }
@@ -42,6 +42,11 @@ body {
 .options-text {
     font-size: 1rem;
     color: #ffffff;
+}
+
+.statistics {
+    display: flex;
+    justify-content: flex-end;
 }
 
 .text-wrapper {
@@ -52,7 +57,9 @@ body {
 }
 
 input[type="checkbox"] {
-    height: 1vw;
-    width: 1vw;
-    margin-right: 5px;
+    height: 15px;
+    width: 15px;
+    vertical-align: middle;
+    position: relative;
+    bottom: 2px;
 }
