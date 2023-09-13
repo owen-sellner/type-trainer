@@ -63,3 +63,8 @@ input[type="checkbox"] {
     position: relative;
     bottom: 2px;
 }
+
+/* Hide text input */
+/* input[type="text"] {
+    display: none;
+} */
