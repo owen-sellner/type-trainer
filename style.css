@@ -44,6 +44,10 @@ body {
     color: #ffffff;
 }
 
+.textbox-text {
+    font-size: 1.5rem;
+}
+
 .statistics {
     display: flex;
     justify-content: flex-end;
@@ -51,8 +55,8 @@ body {
 
 .text-wrapper {
     background-color: #ffffff;
-    padding: 2vh;
-    min-height: 300px;
+    padding: 3vh;
+    min-height: 13vh;
     border: 5px solid green;
 }
 

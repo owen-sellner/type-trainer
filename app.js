@@ -1,17 +1,28 @@
 // Getting the text data from API
-const MIN_LENGTH = 100;
-const MAX_LENGTH = 200;
+var quoteText = "";
+const MIN_LENGTH = 150;
+const MAX_LENGTH = 250;
 const API_URL = `https://api.quotable.io/random?minLength=${MIN_LENGTH}&maxLength=${MAX_LENGTH}`
 
 async function getQuote(url) {
     const res = await fetch(url);
 
     const data = await res.json();
-    const quoteText = data.content;
+    quoteText = data.content;
     console.log(quoteText);
+
+    for(let i = 0; i < quoteText.length; i++) {
+        const textBox = document.querySelector('.textbox-text');
+        const spanItem = document.createElement('span');
+        spanItem.innerText = quoteText[i];
+        console.log(spanItem);
+        textBox.append(spanItem);
+    }
 }
 
-getQuote(API_URL)
+getQuote(API_URL);
+
+
 
 // Toggle focus on the text input when the user clicks on the textwrapper
 function toggleInputFocus() {
