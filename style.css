@@ -5,7 +5,7 @@
 }
 
 header {
-    margin: 8vh auto; 
+    margin: 8vh auto;
     text-align: center;
 }
 
@@ -58,6 +58,17 @@ body {
     padding: 3vh;
     min-height: 13vh;
     border: 5px solid green;
+}
+
+.blur {
+    filter: blur(3px);
+}
+
+.overlay-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 input[type="checkbox"] {

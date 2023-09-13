@@ -16,7 +16,8 @@
     <div class="container">
         <div class="options-wrapper">
             <div class="checkboxes">
-                <label style="margin-right: 15px;" class="options-text"><input type="checkbox" id="include-uppercase" checked> Capital Letters</label>
+                <label style="margin-right: 15px;" class="options-text"><input type="checkbox" id="include-uppercase"
+                        checked> Capital Letters</label>
                 <label class="options-text"><input type="checkbox" id="include-punctuation" checked> Punctuation</label>
             </div>
             <div class="statistics">
@@ -26,7 +27,11 @@
         </div>
         <input class="text-input" type="text" onkeydown="">
         <div class="text-wrapper" onclick="toggleInputFocus()">
+            <div class="blur-overlay blur">
+                <p class="textbox-text"></p>
+            </div>
             <p class="textbox-text"></p>
+            <p class="overlay-text">Click to Activate!</p>
         </div>
     </div>
 </body>
