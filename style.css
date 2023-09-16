@@ -69,6 +69,10 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    font-size: 4vh;
+    font-weight: bold;
+    color: #ffffff;
+    -webkit-text-stroke: 2px #726557;
 }
 
 .disable {
