@@ -21,10 +21,13 @@ async function getQuote(url) {
     if (!document.getElementById("include-punctuation").checked) {
         quoteText = removePunctuation(quoteText);
     }
+    
+    // Reset textbox
+    const textBox = document.querySelector('.textbox-text');
+    textBox.innerHTML = ""
 
     // Add each character from the quote as a span element
     for(let i = 0; i < quoteText.length; i++) {
-        const textBox = document.querySelector('.textbox-text');
         const spanItem = document.createElement('span');
         spanItem.innerText = quoteText[i];
         textBox.append(spanItem);
@@ -33,6 +36,15 @@ async function getQuote(url) {
 
 getQuote(API_URL);
 
+// Event listeners for checkboxes
+document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("include-uppercase").addEventListener("change", function() {
+        getQuote(API_URL);
+    });
+    document.getElementById("include-punctuation").addEventListener("change", function() {
+        getQuote(API_URL);
+    });
+});
 
 // Removes the punctuation from the quote
 function removePunctuation(quote) {
