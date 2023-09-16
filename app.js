@@ -22,9 +22,11 @@ async function getQuote(url) {
         quoteText = removePunctuation(quoteText);
     }
     
-    // Reset textbox
+    // Reset textbox and input
     const textBox = document.querySelector('.textbox-text');
     textBox.innerHTML = ""
+    const textInput = document.querySelector(".text-input")
+    textInput.value = ""
 
     // Add each character from the quote as a span element
     for(let i = 0; i < quoteText.length; i++) {
