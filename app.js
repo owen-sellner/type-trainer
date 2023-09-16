@@ -36,13 +36,27 @@ async function getQuote(url) {
 
 getQuote(API_URL);
 
-// Event listeners for checkboxes
+// Event listeners 
 document.addEventListener("DOMContentLoaded", function () {
+    // Event listeners for checkboxes
     document.getElementById("include-uppercase").addEventListener("change", function() {
         getQuote(API_URL);
     });
     document.getElementById("include-punctuation").addEventListener("change", function() {
         getQuote(API_URL);
+    });
+
+    // Event listeners for text focus
+    const textInput = document.querySelector(".text-input")
+    const blurOverlay = document.querySelector(".blur-overlay")
+    const textOverlay = document.querySelector(".overlay-text")
+    textInput.addEventListener("focus", function() {
+        blurOverlay.classList.remove("blur");
+        textOverlay.classList.add("disable");
+    });
+    textInput.addEventListener("blur", function() {
+        blurOverlay.classList.add("blur");
+        textOverlay.classList.remove("disable");
     });
 });
 
