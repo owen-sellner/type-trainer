@@ -46,7 +46,6 @@ body {
 
 .textbox-text {
     font-size: 1.5rem;
-    letter-spacing: 0.2rem;
 }
 
 .statistics {
@@ -93,3 +92,23 @@ input[type="checkbox"] {
 /* input[type="text"] {
     display: none;
 } */
+
+
+span {
+    color: black;
+    margin: 0.2rem;
+}
+
+.correct {
+    border-bottom: 0.1rem solid;
+    color: green;
+}
+
+.incorrect {
+    border-bottom: 0.1rem solid;
+    color: red;
+}
+
+.current {
+    border-bottom: 0.1rem solid gray;
+}
