@@ -88,9 +88,10 @@ input[type="checkbox"] {
 }
 
 /* Hide text input */
-/* input[type="text"] {
-    display: none;
-} */
+input[type="text"] {
+    position: absolute;
+    left: -100vw;
+}
 
 
 span {
