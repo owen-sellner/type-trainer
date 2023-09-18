@@ -127,7 +127,11 @@ function onType() {
         }
     }
 
+    // Reset the quote as well as update WPM and Accuracy 
     if (textLength === spanLength) {
+        // Update Accuracy 
+        
+
         getQuote(API_URL);
     }
 }
