@@ -21,7 +21,7 @@ async function getQuote(url) {
     if (!document.getElementById("include-punctuation").checked) {
         quoteText = removePunctuation(quoteText);
     }
-    
+
     // Reset textbox and input
     const textBox = document.querySelector('.textbox-text');
     textBox.innerHTML = ""
@@ -29,7 +29,7 @@ async function getQuote(url) {
     textInput.value = ""
 
     // Add each character from the quote as a span element
-    for(let i = 0; i < quoteText.length; i++) {
+    for (let i = 0; i < quoteText.length; i++) {
         const spanItem = document.createElement('span');
 
         if (quoteText[i] === " ") {
@@ -37,6 +37,11 @@ async function getQuote(url) {
         } else {
             spanItem.innerText = quoteText[i];
         }
+
+        if (i === 0) {
+            spanItem.classList.add("current");
+        }
+
         textBox.append(spanItem);
     }
 }
@@ -46,10 +51,10 @@ getQuote(API_URL);
 // Event listeners 
 document.addEventListener("DOMContentLoaded", function () {
     // Event listeners for checkboxes
-    document.getElementById("include-uppercase").addEventListener("change", function() {
+    document.getElementById("include-uppercase").addEventListener("change", function () {
         getQuote(API_URL);
     });
-    document.getElementById("include-punctuation").addEventListener("change", function() {
+    document.getElementById("include-punctuation").addEventListener("change", function () {
         getQuote(API_URL);
     });
 
@@ -57,14 +62,17 @@ document.addEventListener("DOMContentLoaded", function () {
     const textInput = document.querySelector(".text-input")
     const blurOverlay = document.querySelector(".blur-overlay")
     const textOverlay = document.querySelector(".overlay-text")
-    textInput.addEventListener("focus", function() {
+    textInput.addEventListener("focus", function () {
         blurOverlay.classList.remove("blur");
         textOverlay.classList.add("disable");
     });
-    textInput.addEventListener("blur", function() {
+    textInput.addEventListener("blur", function () {
         blurOverlay.classList.add("blur");
         textOverlay.classList.remove("disable");
     });
+
+    // Event listener for typing
+    textInput.addEventListener("input", onType);
 });
 
 // Removes the punctuation from the quote
@@ -86,5 +94,39 @@ function toggleInputFocus() {
         textInput.blur()
     } else {
         textInput.focus()
+    }
+}
+
+// Change letter styles based on user input
+function onType() {
+    const textInput = document.querySelector(".text-input");
+    const spanList = document.getElementsByTagName("span");
+
+    const textLength = textInput.value.length;
+    const spanLength = spanList.length;
+
+    if (textLength < spanLength) {
+        // Set the current letter style
+        for (let i = 0; i < spanLength; i++) {
+            spanList[i].classList.remove("current");
+        }
+        spanList[textLength].className = "current";
+
+        // Set correct and error
+        for (let j = 0; j < textLength; j++) {
+            // Convert non-breaking spaces to regular spaces
+            const textInputValue = textInput.value[j].replace(/\u00a0/g, " ");
+
+            // Compare span item to input value
+            if (spanList[j].innerText === textInputValue) {
+                spanList[j].className = "correct";
+            } else {
+                spanList[j].className = "incorrect";
+            }
+        }
+    }
+
+    if (textLength === spanLength) {
+        getQuote(API_URL);
     }
 }
