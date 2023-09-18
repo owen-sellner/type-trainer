@@ -115,10 +115,11 @@ function onType() {
         // Set correct and error
         for (let j = 0; j < textLength; j++) {
             // Convert non-breaking spaces to regular spaces
-            const textInputValue = textInput.value[j].replace(/\u00a0/g, " ");
+            // Non-breaking spaces were used in the HTML to keep consistant spacing size
+            const spanItemValue = spanList[j].innerText.replace(/\u00a0/g, " ");
 
             // Compare span item to input value
-            if (spanList[j].innerText === textInputValue) {
+            if (spanItemValue === textInput.value[j]) {
                 spanList[j].className = "correct";
             } else {
                 spanList[j].className = "incorrect";
