@@ -1,7 +1,7 @@
 // Getting the text data from API
 var quoteText = "";
-const MIN_LENGTH = 150;
-const MAX_LENGTH = 250;
+const MIN_LENGTH = 100;
+const MAX_LENGTH = 200;
 const API_URL = `https://api.quotable.io/random?minLength=${MIN_LENGTH}&maxLength=${MAX_LENGTH}`
 
 async function getQuote(url) {
@@ -31,7 +31,12 @@ async function getQuote(url) {
     // Add each character from the quote as a span element
     for(let i = 0; i < quoteText.length; i++) {
         const spanItem = document.createElement('span');
-        spanItem.innerText = quoteText[i];
+
+        if (quoteText[i] === " ") {
+            spanItem.innerHTML = "&nbsp;";
+        } else {
+            spanItem.innerText = quoteText[i];
+        }
         textBox.append(spanItem);
     }
 }

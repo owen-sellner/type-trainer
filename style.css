@@ -56,6 +56,8 @@ body {
 .text-wrapper {
     position: relative;
     background-color: #ffffff;
+    text-align: justify;
+    word-break: break-all;
     padding: 3vh;
     min-height: 13vh;
     border: 5px solid green;
@@ -95,20 +97,23 @@ input[type="checkbox"] {
 
 
 span {
-    color: black;
-    margin: 0.2rem;
+    display: inline-block;
+    text-align: center;
+    font-weight: bold;
+    min-width: 1rem;
+    margin: 0.1rem;
 }
 
 .correct {
-    border-bottom: 0.1rem solid;
+    border-bottom: 0.2rem solid;
     color: green;
 }
 
 .incorrect {
-    border-bottom: 0.1rem solid;
+    border-bottom: 0.2rem solid;
     color: red;
 }
 
 .current {
-    border-bottom: 0.1rem solid gray;
+    border-bottom: 0.2rem solid gray;
 }
