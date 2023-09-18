@@ -13,6 +13,9 @@ async function getQuote(url) {
     const data = await res.json();
     quoteText = data.content;
 
+    // Remove em dashes
+    quoteText = quoteText.replace(/—/g, "-");
+
     // Check if the check boxes are checked
     if (!document.getElementById("include-uppercase").checked) {
         quoteText = quoteText.toLowerCase();
