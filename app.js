@@ -36,7 +36,7 @@ async function getQuote(url) {
         const spanItem = document.createElement('span');
 
         if (quoteText[i] === " ") {
-            spanItem.innerHTML = "&nbsp;";
+            spanItem.innerHTML = "&#9141;";
         } else {
             spanItem.innerText = quoteText[i];
         }
@@ -119,7 +119,7 @@ function onType() {
         for (let j = 0; j < textLength; j++) {
             // Convert non-breaking spaces to regular spaces
             // Non-breaking spaces were used in the HTML to keep consistant spacing size
-            const spanItemValue = spanList[j].innerText.replace(/\u00a0/g, " ");
+            const spanItemValue = spanList[j].innerText.replace(/\u23b5/g, " ");
 
             // Compare span item to input value
             if (spanItemValue === textInput.value[j]) {

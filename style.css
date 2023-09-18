@@ -98,6 +98,7 @@ span {
     text-align: center;
     font-weight: bold;
     min-width: 1rem;
+    min-height: 2rem;
     margin: 0.1rem;
 }
 
