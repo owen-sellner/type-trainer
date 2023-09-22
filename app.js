@@ -1,3 +1,9 @@
+// Set accuracy value
+let accuracy = 100;
+
+// Set seconds counter
+let seconds = 0;
+
 // Getting the text data from API
 var quoteText = "";
 const MIN_LENGTH = 100;
@@ -5,6 +11,9 @@ const MAX_LENGTH = 200;
 const API_URL = `https://api.quotable.io/random?minLength=${MIN_LENGTH}&maxLength=${MAX_LENGTH}`
 
 async function getQuote(url) {
+
+    // Reset seconds counter 
+    seconds = 0;
 
     // Get response from API
     const res = await fetch(url);
@@ -100,9 +109,15 @@ function toggleInputFocus() {
     }
 }
 
-// Set accuracy value
-let accuracy = 100;
+// Create interval for iterating timer
+setInterval(addTime, 1000);
 
+function addTime() {
+    const textInput = document.querySelector(".text-input");
+    if (textInput === document.activeElement) {
+        seconds += 1;
+    }
+};
 
 // Change letter styles based on user input
 function onType() {
@@ -143,7 +158,9 @@ function onType() {
         document.getElementById("accuracy").innerText = `Accuracy: ${accuracy}%`
 
         // Update WPM
-
+        let cpm = spanLength / (seconds / 60);
+        let wpm = Math.floor(cpm / 5);  
+        document.getElementById("wpm").innerText = `${wpm} WPM`
 
         getQuote(API_URL);
     }
