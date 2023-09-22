@@ -100,6 +100,10 @@ function toggleInputFocus() {
     }
 }
 
+// Set accuracy value
+let accuracy = 100;
+
+
 // Change letter styles based on user input
 function onType() {
     const textInput = document.querySelector(".text-input");
@@ -133,7 +137,13 @@ function onType() {
     // Reset the quote as well as update WPM and Accuracy 
     if (textLength === spanLength) {
         // Update Accuracy 
+        let currentAccuracy = (document.querySelectorAll(".correct").length / spanLength) * 100;
+        accuracy = Math.ceil((accuracy + currentAccuracy) / 2);
         
+        document.getElementById("accuracy").innerText = `Accuracy: ${accuracy}%`
+
+        // Update WPM
+
 
         getQuote(API_URL);
     }
