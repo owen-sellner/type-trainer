@@ -153,7 +153,7 @@ function onType() {
     if (textLength === spanLength) {
         // Update Accuracy 
         let currentAccuracy = (document.querySelectorAll(".correct").length / spanLength) * 100;
-        accuracy = Math.ceil(currentAccuracy);
+        accuracy = Math.round((accuracy + currentAccuracy) / 2);
         
         document.getElementById("accuracy").innerText = `Accuracy: ${accuracy}%`
 
